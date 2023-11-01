@@ -1,0 +1,66 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15.3-alpine3.18
+    container_name: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - freegames-network
+
+  redis:
+    image: redis:7.0.12-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - freegames-network
+
+  app:
+    image: freegames-epic
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/rails
+    depends_on:
+      - postgres
+      - redis
+    tty: true
+    hostname: app
+    container_name: app
+    networks:
+      - freegames-network
+
+  sidekiq:
+    image: freegames-epic
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/rails
+    depends_on:
+      - postgres
+      - redis
+    command: ./bin/bundle exec sidekiq
+    tty: true
+    hostname: sidekiq
+    container_name: sidekiq
+    networks:
+      - freegames-network
+
+volumes:
+  db_data:
+
+networks:
+  freegames-network:
+    name: freegames-network
+    driver: bridge
