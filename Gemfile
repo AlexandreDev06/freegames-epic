@@ -5,6 +5,8 @@ ruby '3.2.1'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.1'
 
+# Sass-rails
+gem 'sass-rails'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -23,9 +25,6 @@ gem 'turbo-rails'
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
 
-# Bundle and process CSS [https://github.com/rails/cssbundling-rails]
-gem 'cssbundling-rails'
-
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
@@ -36,7 +35,7 @@ gem 'redis', '>= 4.0.1'
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem 'bcrypt', '~> 3.1.7'
 # Gem Rubocop to check code style
 gem 'rubocop'
 gem 'rubocop-rails'
@@ -58,12 +57,16 @@ gem 'dotenv-rails'
 # Sidekiq to run background jobs
 gem 'sidekiq'
 
+# Gem for login
+gem 'devise', '~> 4.9'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
 
   # Gem factory for tests for help to create objects
   gem 'factory_bot_rails'
+  gem 'rubocop-factory_bot'
 
   # Faker is a library for generating fake data such as names, addresses, and phone numbers.
   gem 'faker'
