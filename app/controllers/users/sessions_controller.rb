@@ -1,4 +1,5 @@
 module Users
+  # Class to manage sessions to devise
   class SessionsController < Devise::SessionsController
     # before_action :configure_sign_in_params, only: [:create]
 

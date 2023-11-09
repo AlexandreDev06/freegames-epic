@@ -1,3 +1,4 @@
+# Class to manage session of whatsapp
 class CentralsController < ApplicationController
   before_action :set_central, only: %i[show edit update destroy]
 

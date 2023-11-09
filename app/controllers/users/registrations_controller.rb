@@ -1,6 +1,5 @@
-# frozen_string_literal: true
-
 module Users
+  # Class to manage registrations for devise
   class RegistrationsController < Devise::RegistrationsController
     # POST /resource
     # def create
