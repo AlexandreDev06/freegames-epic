@@ -11,6 +11,15 @@ db:
 migrate:
 	$(RAILS) db:migrate
 
+# Run bundle install
+bundle:
+	$(BUNDLE) install
+
+rails-command:
+	$(RAILS) $(command)
+
+bundle-add:
+	$(BUNDLE) add $(name)
 # Test target
 test:
 	$(RAILS) test
