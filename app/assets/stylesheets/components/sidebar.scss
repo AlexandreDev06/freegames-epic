@@ -1,0 +1,15 @@
+.sidebar {
+  .link {
+    padding: 8px 15px;
+    border-radius: 12px;
+    margin-block: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #414141;
+    display: flex;
+    &:hover {
+      color: #000;
+      background-color: #ddd;
+    }
+  }
+}

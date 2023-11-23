@@ -1,0 +1,19 @@
+<header class="row w-99 px-4 py-2 mb-2 shadow-sm">
+  <div class="logo col-3">
+    <a class="cursor-pointer text-decoration-none" href="/">
+      <%= image_tag 'epic-games-logo', class: 'col-3' %>
+      <span>Free Games of Epic Games alert's</span>
+    </a>
+  </div>
+
+  <div class="d-flex col align-middle justify-content-end">
+    <div class="w-auto mx-3 fst-italic"><%= current_user.email %></div>
+    <div class="button-logout w-auto">
+      <%= link_to destroy_user_session_path, data: { "turbo-method": :delete } do %>
+        <span class="material-symbols-outlined fs-3">
+          power_settings_new
+        </span>
+      <% end %>
+    </div>
+  </div>
+</header>
